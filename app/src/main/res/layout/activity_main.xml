@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.MainActivity">
+
+
+    <data>
+        <variable
+            name="viewModel"
+            type="sn.systems.mvvmdemojava.viewmodel.LoginViewModel"/>
+        <!--<variable
+            name="userloginevent"
+            type="sn.systems.mvvmdemojava.commands.userLogin"/>-->
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20pt"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/emailid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            app:addTextChangedListener = "@{viewModel.getEmailTextWatcher}"/>
+
+        <EditText
+            android:id="@+id/passid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:addTextChangedListener = "@{viewModel.getPasswordTextWatcher}"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5pt"
+            android:background="@color/colorAccent"
+            android:text="Login"
+            android:onClick="@{viewModel::onLoginClicked}"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite" />
+
+    </LinearLayout>
+</layout>
